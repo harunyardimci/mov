@@ -79,7 +79,6 @@ class rest {
         if ($code < 200 && $code >= 300 ) {
             return false;
         }
-
         return $response;
     }
 }

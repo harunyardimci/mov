@@ -1,3 +1,8 @@
+<?php
+// gives the current path
+define(APPLICATION_PATH, realpath('') . '/');
+
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
