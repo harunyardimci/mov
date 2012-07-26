@@ -9,8 +9,6 @@
 
 class rest {
 
-    const BASE_URL = "http://www.";
-
     private static $instance = null;
 
     private $handle = null;

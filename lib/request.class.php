@@ -9,6 +9,11 @@
 class request
 {
 
+    const SUGGESTION_BASE_URL = 'http://sg.media-imdb.com/suggests/';
+    const SEARCH_BASE_URL = 'http://www.imdb.com/xml/find?json=1&nr=1';
+    //http://www.imdb.com/xml/find?json=1&nr=1&tt=on&q=lost&fb_source=message
+    //http://www.imdb.com/xml/find?json=1&nr=1&nm=on&q=jeniffer+garner&fb_source=message
+
     private $restClient = null;
 
     function __construct() {
@@ -30,7 +35,7 @@ class request
 
     function suggest($keyword) {
 
-        $url = 'http://sg.media-imdb.com/suggests/' . substr($keyword,0,1) . '/' . $keyword . '.json';
+        $url = self::SUGGESTION_BASE_URL . substr($keyword,0,1) . '/' . $keyword . '.json';
         $x = json_decode($this->restClient->get($url));
         var_dump($x);
 
