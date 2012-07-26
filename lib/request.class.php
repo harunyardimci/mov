@@ -36,9 +36,6 @@ class request
     function suggest($keyword) {
 
         $url = self::SUGGESTION_BASE_URL . substr($keyword,0,1) . '/' . $keyword . '.json';
-        $x = json_decode($this->restClient->get($url));
-        var_dump($x);
-
-        return $x;
+        return json_decode($this->restClient->get($url),true);
     }
 }

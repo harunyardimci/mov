@@ -46,15 +46,32 @@ require_once 'config/config.php';
 
 	<body>
         <div class="container">
-            <h1>Movie Search</h1>
+            <div class="page-header">
+                <h1>Movie Search</h1>
+            </div>
+
             <form class="well form-search">
                 <div class="row">
-                    <div class="control-group">
-                        <input type="text" class=input-xxlarge search-query" value="Movie name, title, cast">&nbsp;<a class="btn btn-info btn-large" href="#">Search</a>
-                        <p class="help-block">You can search by movie name or title.</p>
+                    <div class="span10 offset2">
+                        <input type="text" class="input-xxlarge search-query" style="height: 27px;" value="Movie name, title, cast">&nbsp;
+                        <a class="btn btn-info btn-large" href="#">Search</a>
+                        <p class="help-block">You can search a movie by name or title.</p>
                     </div>
                 </div>
             </form>
+<pre>
+            <?php
+            require_once APPLICATION_PATH . '/lib/request.class.php';
+            $req = new request();
+            $result = $req->suggest('harun');
+            foreach ($result['d'] as $suggestion) {
+
+                file_put_contents('posters/'. $suggestion['id'] .'.jpg', file_get_contents($suggestion['i'][0]));
+                echo '<img src="posters/'.$suggestion['id'].'.jpg" alt="'.$suggestion['l'].'" /> <br/>';
+
+            }
+            ?>
+</pre>
         </div>
 	</body>
 </html>

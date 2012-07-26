@@ -16,7 +16,7 @@ class rest {
     private function __construct() {
 
         $this->handle = curl_init();
-        $this->setHeaders();
+        $this->setOptions();
     }
 
     public static function getInstance () {
@@ -26,7 +26,7 @@ class rest {
         return self::$instance;
     }
 
-    public function setOption() {
+    public function setOptions() {
 
         $headers = array(
             'Accept: application/json',
@@ -36,14 +36,20 @@ class rest {
         curl_setopt($this->handle, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($this->handle, CURLOPT_SSL_VERIFYHOST, false);
         curl_setopt($this->handle, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($this->handle, CURLOPT_CONNECTTIMEOUT, 5);
     }
 
     public function get($url) {
-        $this->request('GET',$url);
+        return $this->request('GET',$url);
     }
 
     public function post ($url, $data) {
 
+    }
+
+    private function fixResult($data) {
+        $pos = strpos($data,'{');
+        return substr($data, $pos, (strlen($data)-$pos-1));
     }
 
     private function request($method, $url, $data = array()) {
@@ -74,9 +80,11 @@ class rest {
 
         $response = curl_exec($this->handle);
         $code = (int)curl_getinfo($this->handle, CURLINFO_HTTP_CODE);
+
         if ($code < 200 && $code >= 300 ) {
             return false;
         }
-        return $response;
+
+        return $this->fixResult($response);
     }
 }
