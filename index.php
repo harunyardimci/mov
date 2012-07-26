@@ -23,17 +23,21 @@
         <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
         <link href="assets/css/docs.css" rel="stylesheet">
         <link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+        <!-- fav and touch icons -->
+        <link rel="shortcut icon" href="assets/img/favicon.ico">
+
+        <link rel="canonical" href="http://www.mmm.com/"/>
 
         <!-- IE6-8 support of HTML5 elements -->
         <!--[if lt IE 9]>
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
 
-        <!-- fav and touch icons -->
-        <link rel="shortcut icon" href="assets/img/favicon.ico">
 
-        <link rel="canonical" href="http://www.mmm.com/"/>
-	
+        <script type="text/javascript" src="assets/js/jquery-1.7.2.js"></script>
+        <script type="text/javascript" src="assets/js/bootstrap.js"></script>
+
+
 	</head>
 
 	<body>
