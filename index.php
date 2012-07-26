@@ -43,12 +43,12 @@
 	<body>
         <div class="container">
             <h1>Movie Search</h1>
-            <form>
+            <form class="well form-search">
                 <div class="row">
-                        <div class="control-group">
-                            <input type="text" class=input-xxlarge search-query" value="Movie name, title, cast">&nbsp;<a class="btn btn-info btn-large" href="#">Search</a>
-                            <p class="help-block">In addition to freeform text, any HTML5 text-based input appears like so.</p>
-                        </div>
+                    <div class="control-group">
+                        <input type="text" class=input-xxlarge search-query" value="Movie name, title, cast">&nbsp;<a class="btn btn-info btn-large" href="#">Search</a>
+                        <p class="help-block">You can search by movie name or title.</p>
+                    </div>
                 </div>
             </form>
         </div>
