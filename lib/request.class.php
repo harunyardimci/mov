@@ -27,4 +27,13 @@ class request
         $url = $search;
         return $this->restClient->get($url);
     }
+
+    function suggest($keyword) {
+
+        $url = 'http://sg.media-imdb.com/suggests/' . substr($keyword,0,1) . '/' . $keyword . '.json';
+        $x = json_decode($this->restClient->get($url));
+        var_dump($x);
+
+        return $x;
+    }
 }
