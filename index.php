@@ -1,7 +1,6 @@
 <?php
 
-require_once 'config/config.php';
-
+    require_once 'config/config.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,7 +39,7 @@ require_once 'config/config.php';
 
         <script type="text/javascript" src="assets/js/jquery-1.7.2.js"></script>
         <script type="text/javascript" src="assets/js/bootstrap.js"></script>
-
+        <script type="text/javascript" src="assets/js/request.js"></script>
 
 	</head>
 
@@ -53,25 +52,17 @@ require_once 'config/config.php';
             <form class="well form-search">
                 <div class="row">
                     <div class="span10 offset2">
-                        <input type="text" class="input-xxlarge search-query" style="height: 27px;" value="Movie name, title, cast">&nbsp;
+                        <input id="txtSearch" name="txtSearch" type="text" class="input-xxlarge search-query" style="height: 27px;" value="batm">&nbsp;
                         <a class="btn btn-info btn-large" href="#">Search</a>
                         <p class="help-block">You can search a movie by name or title.</p>
                     </div>
                 </div>
             </form>
-<pre>
-            <?php
-            require_once APPLICATION_PATH . '/lib/request.class.php';
-            $req = new request();
-            $result = $req->suggest('harun');
-            foreach ($result['d'] as $suggestion) {
 
-                file_put_contents('posters/'. $suggestion['id'] .'.jpg', file_get_contents($suggestion['i'][0]));
-                echo '<img src="posters/'.$suggestion['id'].'.jpg" alt="'.$suggestion['l'].'" /> <br/>';
+            <div class="clear"><!-- --></div>
 
-            }
-            ?>
-</pre>
+            <div class="searchResult"></div>
+
         </div>
 	</body>
 </html>

@@ -1,0 +1,10 @@
+movie-result {
+
+    height: auto;
+}
+
+movie-result li {
+    list-style: none;
+    max-width: 170px;
+
+}
